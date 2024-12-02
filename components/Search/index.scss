@@ -8,6 +8,9 @@
 		height: 24px;
 		margin-right: 16px;
 	}
+	& > .hideMore {
+		display: none;
+	}
 	& > .search {
 		display: flex;
 		width: 100%;
