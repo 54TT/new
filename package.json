@@ -1,0 +1,30 @@
+{
+	"name": "exchange",
+	"version": "1.0.0",
+	"main": "main.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"dependencies": {
+		"@types/lodash": "^4.17.7",
+		"axios": "^1.7.5",
+		"dayjs": "^1.11.13",
+		"easemob-websdk": "^4.9.0",
+		"echarts": "^5.5.1",
+		"lodash": "^4.17.21",
+		"pinia": "^2.2.2",
+		"pinia-plugin-persistedstate": "^3.2.3",
+		"vue": "^3.4.38",
+		"vue-i18n": "^9.1.9"
+	},
+	"devDependencies": {
+		"@types/node": "^22.5.1",
+		"@types/uni-app": "^1.4.8",
+		"@uni-helper/uni-app-types": "^1.0.0-alpha.3",
+		"miniprogram-api-typings": "^3.12.3"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"description": ""
+}

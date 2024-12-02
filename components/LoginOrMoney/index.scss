@@ -1,0 +1,65 @@
+.loginBox {
+	& > .loginBox {
+		display: none;
+		padding: 0 16px;
+		.box {
+			width: 50%;
+			margin: 12px auto 18px;
+			min-width: 110px;
+			min-height: 100px;
+		}
+		.login {
+			width: 100%;
+			background-color: #fa9530;
+			border-radius: 30px;
+			padding: 12px 0;
+			font-size: 16px;
+			cursor: pointer;
+			color: black;
+			text-align: center;
+			font-weight: 500;
+		}
+	}
+	& > .showMoney {
+		padding: 0 16px;
+		& > .operate {
+			display: flex;
+			align-items: center;
+			margin: 25px 0;
+			justify-content: space-between;
+			& > p {
+				width: 50%;
+				background: #1a1a1a;
+				border-radius: 30px;
+				font-weight: 500;
+				font-size: 16px;
+				padding: 11px 0;
+				cursor: pointer;
+				color: #ffffff;
+				text-align: center;
+			}
+			& > .left {
+				margin-right: 6px;
+			}
+			& > .right {
+				margin-left: 6px;
+			}
+		}
+		& > .money {
+			font-weight: 500;
+			color: white;
+			& > .left {
+				font-size: 22px;
+			}
+			& > .right {
+				font-size: 12px;
+				margin-left: 6px;
+			}
+		}
+		& > .title {
+			color: rgba(255, 255, 255, 0.4);
+			font-size: 14px;
+			margin-bottom: 10px;
+		}
+	}
+}

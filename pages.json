@@ -1,0 +1,72 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"backgroundTextStyle": "#000000", // 下拉刷新时背景的样式
+				"enablePullDownRefresh": true, // 启用下拉刷新
+				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
+			}
+		},
+		{
+			"path": "pages/assets/index",
+			"style": {
+				"backgroundTextStyle": "#000000", // 下拉刷新时背景的样式
+				"enablePullDownRefresh": true, // 启用下拉刷新
+				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
+			}
+		},
+		{
+			"path": "pages/finance/index",
+			"style": {
+				"backgroundTextStyle": "#000000", // 下拉刷新时背景的样式
+				"enablePullDownRefresh": true, // 启用下拉刷新
+				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
+			}
+		},
+		{
+			"path": "pages/quotes/index",
+			"style": {
+				"backgroundTextStyle": "#000000", // 下拉刷新时背景的样式
+				"enablePullDownRefresh": true, // 启用下拉刷新
+				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
+			}
+		},
+		{
+			"path": "pages/trade/index",
+			"style": {
+				"backgroundTextStyle": "#000000", // 下拉刷新时背景的样式
+				"enablePullDownRefresh": true, // 启用下拉刷新
+				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "#000000",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"backgroundColor": "transparent", // TabBar 背景颜色
+		"navigationStyle": "custom",
+		"height": "0px",
+		"list": [{
+				"pagePath": "pages/index/index"
+			},
+			{
+				"pagePath": "pages/assets/index"
+			},
+			{
+				"pagePath": "pages/finance/index"
+			},
+			{
+				"pagePath": "pages/quotes/index"
+			},
+			{
+				"pagePath": "pages/trade/index"
+			}
+		]
+	},
+	"uniIdRouter": {}
+}
