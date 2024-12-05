@@ -15,3 +15,27 @@ body {
 	margin: 0;
 	padding: 0;
 }
+
+// 三角形
+.thrdsadasdsdsadsadsaddadsdadaee {
+	width: 20px;
+	height: 20px;
+	border-bottom-left-radius: 6px;
+	background-color: #333;
+	transform: rotate(-60deg) skewX(-30deg) scale(1, 0.866);
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		background-color: inherit;
+		width: 20px;
+		height: 20px;
+		border-bottom-left-radius: 6px;
+	}
+	&::before {
+		transform: rotate(135deg) skewY(-45deg) scale(0.707, 1.414) translate(-50%, 0);
+	}
+	&::after {
+		transform: rotate(-135deg) skewX(-45deg) scale(1.414, 0.707) translate(0%, 50%);
+	}
+}

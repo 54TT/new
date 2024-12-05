@@ -2,12 +2,10 @@
 	width: 100%;
 	padding-top: 12px;
 	& > .tabBoxMore {
-		padding-top: 24px;
-		padding-bottom: 12px;
+		padding: 24px 16px 12px;
 		border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 	}
 	& > .tabName {
-		padding: 0 16px;
-		height: 250px;
+		padding: 12px 16px 0;
 	}
 }
