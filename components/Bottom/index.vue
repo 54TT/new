@@ -1,25 +1,43 @@
 <template>
 	<view class="bottomBox">
 		<view class="tabItem" v-for="item in tabList" :key="item.key" @click="switchTab(item.pagePath, item.key)">
-			<img :class="{ imgs: true, tradeImg: item.key === 'trade' }" :src="[updateMore === item.key ? item.selectedIconPath : item.iconPath]" />
-			<img :class="{ hideImg: true, hideMoreImg: item.key === 'trade' }" :src="item.iconPath" />
-			<p class="text">{{ item.name }}</p>
+			<div :class="{ showBack: item.key === 'node' }">
+				<img class="imgs" :src="[change(item.key, item.selectedIconPath, item.iconPath)]" />
+			</div>
+			<img :class="{ hideImg: true, hideMoreImg: item.key === 'node' }" :src="item.iconPath" />
+			<p class="text" :style="{ color: change(item.key, '#024DF6', 'rgba(17, 17, 17, 0.4)') }">{{ item.name }}</p>
 		</view>
 	</view>
 </template>
 <script setup>
 // import { onShow } from '@dcloudio/uni-app';
-import Home from '/static/home.svg';
-import HomeActive from '/static/homeActive.svg';
-import Assets from '/static/assets.svg';
-import AssetsActive from '/static/assetsActive.svg';
-import Finance from '/static/finance.svg';
-import FinanceActive from '/static/financeActive.svg';
-import Quotes from '/static/quotes.svg';
-import QuotesActive from '/static/quotesActive.svg';
-import Trade from '/static/trade.svg';
+import Home from '/static/home.png';
+import HomeActive from '/static/homeActive.png';
+import Assets from '/static/assets.png';
+import AssetsActive from '/static/assetsActive.png';
+import My from '/static/my.png';
+import MyActive from '/static/myActive.png';
+import TradeZone from '/static/tradeZone.png';
+import TradeZoneActive from '/static/tradeZoneActive.png';
+import Node from '/static/node.png';
 const more = uni.getStorageSync('active');
-const updateMore = more ? more : 'home';
+
+const change = (key, selectedIconPath, iconPath) => {
+	if (more) {
+		if (more === key) {
+			return selectedIconPath;
+		} else {
+			return iconPath;
+		}
+	} else {
+		if (key === 'home') {
+			return selectedIconPath;
+		} else {
+			return iconPath;
+		}
+	}
+};
+
 const tabList = [
 	{
 		pagePath: '/pages/index/index',
@@ -30,28 +48,20 @@ const tabList = [
 		key: 'home'
 	},
 	{
-		pagePath: '/pages/quotes/index',
+		pagePath: '/pages/tradeZone/index',
 		state: false,
-		iconPath: Quotes,
-		selectedIconPath: QuotesActive,
-		name: '行情',
-		key: 'quotes'
+		iconPath: TradeZone,
+		selectedIconPath: TradeZoneActive,
+		name: '贸易区',
+		key: 'tradeZone'
 	},
 	{
-		pagePath: '/pages/trade/index',
+		pagePath: '/pages/node/index',
 		state: false,
-		iconPath: Trade,
-		selectedIconPath: Trade,
-		name: '交易',
-		key: 'trade'
-	},
-	{
-		pagePath: '/pages/finance/index',
-		state: false,
-		iconPath: Finance,
-		selectedIconPath: FinanceActive,
-		name: '金融',
-		key: 'finance'
+		iconPath: Node,
+		selectedIconPath: Node,
+		name: '上合节点',
+		key: 'node'
 	},
 	{
 		pagePath: '/pages/assets/index',
@@ -60,6 +70,14 @@ const tabList = [
 		selectedIconPath: AssetsActive,
 		name: '资产',
 		key: 'assets'
+	},
+	{
+		pagePath: '/pages/my/index',
+		state: false,
+		iconPath: My,
+		selectedIconPath: MyActive,
+		name: '我的',
+		key: 'my'
 	}
 ];
 const switchTab = (pagePath, key) => {

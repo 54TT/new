@@ -1,5 +1,6 @@
 <template>
-	<view class="assetsContent"></view>
+	<view class="nodeContent"></view>
+
 	<Tarbar />
 </template>
 

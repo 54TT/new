@@ -1,65 +1,39 @@
-.addOptionalBox {
-	& > .title {
-		font-weight: 400;
-		font-size: 14px;
-		color: #ffffff;
-		padding: 0 16px;
-	}
-	& > .add {
-		border-radius: 30px;
-		font-weight: 500;
-		font-size: 14px;
-		color: #ffffff;
-		text-align: center;
-		cursor: pointer;
-		margin: 12px 16px 0;
-		padding: 12px 0;
-		border: 1px solid #ffffff;
-	}
-	& > .itemBox {
-		padding: 0 16px;
-		border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+.announcementBox {
+	padding: 20px 16px 0;
+	& > .top {
 		display: flex;
+		margin-bottom: 16px;
 		align-items: center;
 		justify-content: space-between;
-		flex-wrap: wrap;
-		& > .token {
-			margin-bottom: 10px;
-			padding: 12px;
-			width: 48%;
-			box-sizing: border-box;
-			background: #1a1a1a;
-			border-radius: 8px;
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			& > .left {
-				& > .name {
-					display: flex;
-					margin-bottom: 6px;
-					align-items: center;
-					.m {
-						font-weight: 500;
-						font-size: 14px;
-						color: rgb(255, 255, 255);
-					}
-					.u {
-						font-weight: 400;
-						font-size: 12px;
-						color: rgba(255, 255, 255, 0.4);
-					}
-				}
-				& > .allName {
-					font-weight: 400;
-					font-size: 12px;
-					color: rgba(255, 255, 255, 0.4);
-				}
-			}
-			& > .right {
-				width: 16px;
-				cursor: pointer;
-				height: 16px;
-			}
+		& > .text {
+			font-weight: 500;
+			font-size: 17px;
+			color: #000000;
+		}
+		& > .img {
+			width: 24px;
+			height: 24px;
+			cursor: pointer;
+		}
+	}
+	& > .item {
+		padding: 12px 16px;
+		background: #f2f6ff;
+		margin-bottom: 14px;
+		border-radius: 12px;
+		& > .text {
+			font-weight: 400;
+			font-size: 14px;
+			color: #111111;
+			margin-bottom: 8px;
+		}
+		p {
+			line-height: 1.2;
+		}
+		& > .time {
+			font-weight: 400;
+			font-size: 12px;
+			color: rgba(17, 17, 17, 0.4);
 		}
 	}
 }

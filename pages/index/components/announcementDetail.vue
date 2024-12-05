@@ -1,6 +1,5 @@
 <template>
-	<view class="assetsContent"></view>
-	<Tarbar />
+	<view>1111111</view>
 </template>
 
 <script setup></script>

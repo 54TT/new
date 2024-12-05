@@ -3,49 +3,49 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"backgroundTextStyle": "#000000", // 下拉刷新时背景的样式
-				"enablePullDownRefresh": true, // 启用下拉刷新
 				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
 			}
 		},
 		{
 			"path": "pages/assets/index",
 			"style": {
-				"backgroundTextStyle": "#000000", // 下拉刷新时背景的样式
-				"enablePullDownRefresh": true, // 启用下拉刷新
 				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
 			}
 		},
 		{
-			"path": "pages/finance/index",
+			"path": "pages/my/index",
 			"style": {
-				"backgroundTextStyle": "#000000", // 下拉刷新时背景的样式
-				"enablePullDownRefresh": true, // 启用下拉刷新
 				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
 			}
 		},
 		{
-			"path": "pages/quotes/index",
+			"path": "pages/node/index",
 			"style": {
-				"backgroundTextStyle": "#000000", // 下拉刷新时背景的样式
-				"enablePullDownRefresh": true, // 启用下拉刷新
 				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
 			}
 		},
 		{
-			"path": "pages/trade/index",
+			"path": "pages/tradeZone/index",
 			"style": {
-				"backgroundTextStyle": "#000000", // 下拉刷新时背景的样式
-				"enablePullDownRefresh": true, // 启用下拉刷新
+				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
+			}
+		},
+		{
+			"path": "pages/index/components/announcement",
+			"style": {
+				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
+			}
+		},
+		{
+			"path": "pages/index/components/announcementDetail",
+			"style": {
 				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
 			}
 		}
 	],
 	"globalStyle": {
-		"navigationBarTextStyle": "#000000",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarTextStyle": "#ffffff",
+		"navigationBarTitleText": "uni-app"
 	},
 	"tabBar": {
 		"backgroundColor": "transparent", // TabBar 背景颜色
@@ -58,13 +58,13 @@
 				"pagePath": "pages/assets/index"
 			},
 			{
-				"pagePath": "pages/finance/index"
+				"pagePath": "pages/my/index"
 			},
 			{
-				"pagePath": "pages/quotes/index"
+				"pagePath": "pages/node/index"
 			},
 			{
-				"pagePath": "pages/trade/index"
+				"pagePath": "pages/tradeZone/index"
 			}
 		]
 	},
