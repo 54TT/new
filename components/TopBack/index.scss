@@ -1,0 +1,16 @@
+.topBox {
+	display: flex;
+	margin-bottom: 16px;
+	align-items: center;
+	justify-content: space-between;
+	& > .text {
+		font-weight: 500;
+		font-size: 17px;
+		color: #000000;
+	}
+	& > .img {
+		width: 24px;
+		height: 24px;
+		cursor: pointer;
+	}
+}

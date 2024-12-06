@@ -1,0 +1,66 @@
+.tradeZoneContent {
+	background-image: url('/static/nodeBack.png');
+	padding: 30px 16px 75px;
+	background-repeat: no-repeat;
+	& > .topBox {
+		display: flex;
+		justify-content: space-between;
+		& > .left {
+			width: 50%;
+			position: relative;
+			margin-right: 6px;
+			box-sizing: border-box;
+			& > .img {
+				width: 100%;
+				min-height: 170px;
+			}
+			& > .poImg {
+				position: absolute;
+				left: 24px;
+				bottom: 30%;
+				width: fit-content;
+			}
+			& > .content {
+				position: absolute;
+				left: 24px;
+				top: 16px;
+				& > .text {
+					font-weight: 500;
+					margin-bottom: 8px;
+					font-size: 14px;
+					color: #ffffff;
+				}
+				& > .num {
+					font-weight: bold;
+					font-size: 24px;
+					color: #ffffff;
+				}
+			}
+		}
+		& > .right {
+			box-sizing: border-box;
+			width: 50%;
+			margin-left: 6px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			& > .top {
+				width: 100%;
+				position: relative;
+				& > .img {
+					width: 100%;
+				}
+				& > .content {
+					position: absolute;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					width: calc(100% - 32px);
+				}
+			}
+		}
+	}
+}

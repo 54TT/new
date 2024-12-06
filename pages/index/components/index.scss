@@ -37,3 +37,19 @@
 		}
 	}
 }
+
+.DetailBox {
+	padding: 20px 16px 0;
+	& > .text {
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 1.2;
+		margin-bottom: 24px;
+		color: #111111;
+	}
+	& > .time {
+		font-weight: 400;
+		font-size: 12px;
+		color: rgba(17, 17, 17, 0.4);
+	}
+}

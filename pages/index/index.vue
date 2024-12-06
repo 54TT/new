@@ -38,7 +38,6 @@
 				</div>
 			</div>
 		</div>
-
 		<uni-popup ref="popup" class="popupBoxMore" background-color="#fff" @change="changePopup">
 			<view class="popup-content">
 				<!-- modalBack.png -->

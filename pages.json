@@ -41,7 +41,20 @@
 			"style": {
 				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
 			}
+		},
+		{
+			"path": "pages/node/components/PlaceAnOrder",
+			"style": {
+				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
+			}
+		},
+		{
+			"path": "pages/node/components/historyOrder",
+			"style": {
+				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
+			}
 		}
+
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "#ffffff",
