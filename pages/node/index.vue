@@ -6,7 +6,7 @@
 				<p class="text">计算机余额</p>
 				<p class="num">7980</p>
 				<div class="bot">
-					<p class="big">></p>
+					<img :src="Next" alt="" />
 					<div class="history">
 						<span class="text" @click="history">历史订单</span>
 						<img :src="WhiteBack" alt="" />
@@ -47,6 +47,7 @@
 <script setup>
 import NodeTopBack from '/static/nodeTopBack.png';
 import WhiteBack from '/static/whiteBack.png';
+import Next from '/static/next.png';
 import Clock from '/static/clock.png';
 
 const nodeList = [

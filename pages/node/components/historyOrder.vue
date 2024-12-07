@@ -4,7 +4,7 @@
 			<TopBack text="历史订单" url="/pages/node/index" isTabbar="true" />
 		</div>
 		<div class="orderListBox">
-			<OrderList :orderParams="orderParams" height="calc(100% - 70px)" />
+			<OrderList :orderParams="orderParams" height="calc(100% - 70px)" status="node" />
 		</div>
 	</view>
 </template>

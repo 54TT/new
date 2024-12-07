@@ -1,0 +1,29 @@
+.historyTradeBox {
+	& > .topBox {
+		padding: 20px 16px;
+		& > .optionBox {
+			padding: 0 22px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			& > .item {
+				width: 47%;
+				position: relative;
+				& > .img {
+					width: 100%;
+				}
+				& > p {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					font-weight: 500;
+					font-size: 14px;
+					transform: translate(-50%, -50%);
+				}
+			}
+		}
+	}
+	& > .listBox {
+		background-color: #f2f6ff;
+	}
+}

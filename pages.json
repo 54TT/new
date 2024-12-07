@@ -53,6 +53,18 @@
 			"style": {
 				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
 			}
+		},
+		{
+			"path": "pages/tradeZone/components/historyTrade",
+			"style": {
+				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
+			}
+		},
+		{
+			"path": "pages/assets/components/topUp",
+			"style": {
+				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
+			}
 		}
 
 	],

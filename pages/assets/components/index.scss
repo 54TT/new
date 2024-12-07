@@ -1,0 +1,118 @@
+.topUpBox {
+	padding: 20px 16px;
+	& > .topUpBoxMore {
+		position: fixed;
+		bottom: 0;
+		width: 80%;
+		left: 10%;
+		cursor: pointer;
+		background: #024df6;
+		border-radius: 30px;
+
+		font-weight: 500;
+		font-size: 16px;
+		color: #ffffff;
+		text-align: center;
+		padding: 14px 0;
+	}
+	& > .amountBox {
+		margin-top: 26px;
+		& > .title {
+			font-weight: 500;
+			font-size: 14px;
+			color: #111111;
+		}
+		& > .input {
+			margin-bottom: 24px;
+			margin-top: 12px;
+			background: #f2f6ff;
+			border-radius: 8px;
+			padding: 12px 16px;
+			.placeholderClassBox {
+				font-weight: 400;
+				font-size: 14px;
+				color: rgba(17, 17, 17, 0.4);
+			}
+		}
+		& > .hint {
+			display: flex;
+			align-items: center;
+			span {
+				font-weight: 400;
+				font-size: 14px;
+				cursor: pointer;
+				color: #024df6;
+				display: inline-block;
+				border-bottom: 1px solid #024df6;
+			}
+		}
+	}
+	& > .optionBox {
+		margin-top: 34px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		p {
+			cursor: pointer;
+			flex: 1;
+			text-align: center;
+			font-weight: 500;
+			font-size: 16px;
+			color: #111111;
+		}
+	}
+	& > .orderList {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		margin-top: 30px;
+		& > .activeItem ::before {
+			content: '';
+			position: absolute;
+			top: -2px;
+			left: -2px;
+			right: -2px;
+			bottom: -2px;
+			border-radius: 12px; /* 继承圆角 */
+			background: linear-gradient(to right, red, orange, yellow, green, blue); /* 渐变边框颜色 */
+			z-index: -1;
+			padding: 3px; /* 边框宽度 */
+			-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+			-webkit-mask-composite: destination-out;
+			mask-composite: exclude;
+		}
+
+		& > .item {
+			width: 48%;
+			margin-bottom: 10px;
+			cursor: pointer;
+			position: relative;
+			border: 1px solid transparent;
+			box-sizing: border-box;
+			background: #f2f6ff;
+			border-radius: 12px;
+			padding: 20px 16px;
+			& > .text {
+				font-weight: 400;
+				font-size: 14px;
+				color: rgba(17, 17, 17, 0.6);
+			}
+			& > .title {
+				display: flex;
+				align-items: center;
+				margin-bottom: 12px;
+				& > img {
+					width: 20px;
+					height: 20px;
+					margin-right: 6px;
+				}
+				& > span {
+					font-weight: 400;
+					font-size: 14px;
+					color: #111111;
+				}
+			}
+		}
+	}
+}
