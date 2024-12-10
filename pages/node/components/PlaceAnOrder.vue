@@ -19,7 +19,7 @@
 import { ref } from 'vue';
 import TopBack from '/components/TopBack/index.vue';
 import TradeModal from '/components/TradeModal/index.vue';
-import Close from '/static/close.png';
+import Close from '@/static/close.png';
 const params = ref({ person: '', phone: '', address: '' });
 const popup = ref(false);
 const onChangeInput = (i, e) => {
@@ -36,6 +36,6 @@ const inputList = [
 ];
 </script>
 
-<style>
+<style lang="scss">
 @import url('./index.scss');
 </style>

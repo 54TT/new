@@ -29,7 +29,7 @@
 			<z-paging ref="paging" use-virtual-list :cell-height-mode="'fixed'" :force-close-inner-list="true" @virtualListChange="virtualListChange" @query="queryList">
 				<view class="lineItemMore" :id="`zp-id-${item.zp_index}`" :key="item.zp_index" v-for="item in virtualList" @click="itemClick(item, item.zp_index)">
 					<div class="left">
-						<img src="/static/combine.svg" alt="" class="img" />
+						<image src="@/static/combine.svg" alt="" class="img" />
 						<div class="content">
 							<p class="en">
 								<span class="name">{{ item.enName }}</span>
@@ -73,6 +73,6 @@ const queryList = (pageNo, pageSize) => {
 };
 </script>
 
-<style>
+<style lang="scss">
 @import url('./index.scss');
 </style>

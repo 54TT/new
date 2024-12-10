@@ -1,7 +1,8 @@
 .nodeContent {
-	background-image: url('/static/nodeBack.png');
+	background-image: url('@/static/nodeBack.png');
 	padding: 30px 16px 75px;
 	background-repeat: no-repeat;
+	background-size: 100%;
 	& > .nodeBox {
 		background: #f2f6ff;
 		padding: 18px 16px 20px;

@@ -3,7 +3,7 @@
 		<view class="popup-content">
 			<div class="topBox">
 				<div class="top">
-					<p class="close">X</p>
+					<p class="close" @click="close">X</p>
 					<p class="text">请输入交易密码</p>
 					<span></span>
 				</div>
@@ -35,7 +35,7 @@
 						<p class="t1">{{ i.en }}</p>
 					</div>
 					<div class="one" v-else>
-						<img :src="i.img" alt="" v-if="i.img" />
+						<image :src="i.img" alt="" v-if="i.img" />
 						<span v-else>{{ i.number }}</span>
 					</div>
 				</div>
@@ -46,7 +46,7 @@
 
 <script setup>
 import { watch, defineProps, ref } from 'vue';
-import Close from '/static/close.png';
+import Close from '@/static/close.png';
 const props = defineProps({
 	show: Boolean,
 	change: Function
@@ -61,6 +61,10 @@ const changePopup = (e) => {
 		props.change();
 	}
 };
+const close = () => {
+	popup.value.close();
+};
+
 const getPhone = (key) => {
 	if (key) {
 		let data = passwordAll.value;
@@ -84,7 +88,6 @@ const getPhone = (key) => {
 		}
 	}
 };
-
 const phone = [
 	{ two: true, number: '1', en: '1', key: '1' },
 	{ two: true, number: '2', en: 'ABC', key: '2' },
@@ -112,6 +115,6 @@ watch(
 );
 </script>
 
-<style>
+<style lang="scss">
 @import url('./index.scss');
 </style>

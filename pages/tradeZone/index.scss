@@ -1,6 +1,7 @@
 .tradeZoneContent {
-	background-image: url('/static/nodeBack.png');
+	background-image: url('@/static/nodeBack.png');
 	padding: 30px 16px 75px;
+	background-size: 100%;
 	background-repeat: no-repeat;
 	& > .bagBox {
 		padding: 22px 16px 0;

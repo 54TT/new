@@ -14,11 +14,11 @@ import { announcementList } from '/utils/type.js';
 const goDetail = (index) => {
 	console.log(index);
 	uni.navigateTo({
-		url: '/pages/index/components/announcementDetail' // 路径是相对于根目录的
+		url: '/pages/index/components/announcementDetail'
 	});
 };
 </script>
 
-<style>
+<style lang="scss">
 @import url('./index.scss');
 </style>

@@ -5,7 +5,7 @@
 			<swiper :style="{ height: swiperHeight + 'px' }" class="swiper-box">
 				<swiper-item ref="swiperChildHeight" class="swiperItemBox" v-for="(item, index) in info" :key="item.key" @click="clickItem(item)">
 					<div class="itemMore">
-						<img :src="moreImg" alt="" class="img" />
+						<image :src="moreImg" alt="" class="img" />
 						<div class="content">
 							<p class="title">{{ item.title }}</p>
 							<p class="text">{{ item.text }}</p>
@@ -59,6 +59,6 @@ onMounted(() => {
 console.log(swiperHeight.value);
 </script>
 
-<style>
+<style lang="scss">
 @import url('./index.scss');
 </style>

@@ -7,7 +7,7 @@
 			</div>
 			<div class="content">
 				<div class="left">
-					<img :src="HistoryOrderBack" alt="" class="img" />
+					<image :src="HistoryOrderBack" alt="" class="img" />
 					<div class="textMore" style="color: rgba(17, 17, 17, 0.4)">
 						<p v-for="(item, ind) in changeList()" :key="ind">{{ item }}</p>
 					</div>
@@ -23,7 +23,7 @@
 	</view>
 </template>
 <script setup>
-import HistoryOrderBack from '/static/historyOrderBack.png';
+import HistoryOrderBack from '@/static/historyOrderBack.png';
 import { defineProps, watch, ref } from 'vue';
 // status-----  node,tradeZoneIncome,tradeZoneHistory
 const props = defineProps({
@@ -63,6 +63,6 @@ watch(
 );
 </script>
 
-<style>
+<style lang="scss">
 @import url('./index.scss');
 </style>

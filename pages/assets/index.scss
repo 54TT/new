@@ -104,7 +104,9 @@
 	}
 	& > .topBox {
 		padding: 32px 16px;
-		background-image: url('/static/assetsTop.png');
+		background-image: url('@/static/assetsTop.png');
+		background-repeat: no-repeat;
+		background-size: 100%;
 		& > .center {
 			position: relative;
 			& > .img {

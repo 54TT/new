@@ -21,6 +21,6 @@ const orderParams = [
 ];
 </script>
 
-<style>
+<style lang="scss">
 @import url('./index.scss');
 </style>

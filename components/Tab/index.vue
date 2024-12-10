@@ -15,6 +15,6 @@ const { option, selectOption, active } = defineProps({
 });
 </script>
 
-<style>
+<style lang="scss">
 @import url('./index.scss');
 </style>

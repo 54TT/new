@@ -1,24 +1,24 @@
 <template>
 	<view class="homeContent">
 		<div class="top">
-			<img :src="TopBack" alt="" class="topBack" />
+			<image :src="TopBack" alt="" class="topBack" />
 			<div class="content">
-				<img :src="NameLogo" alt="" class="name" />
-				<img :src="TextBack" alt="" class="text" />
+				<image :src="NameLogo" alt="" class="name" />
+				<image :src="TextBack" alt="" class="text" />
 			</div>
 		</div>
 		<!-- 公告 -->
 		<div class="announcement">
-			<img :src="NewBack" alt="" class="NewBack" />
+			<image :src="NewBack" alt="" class="NewBack" />
 			<div class="content">
 				<div class="top">
 					<div class="left">
-						<img :src="New" alt="" class="new" />
+						<image :src="New" alt="" class="new" />
 					</div>
 					<p class="right">
-						<img :src="Robot" alt="" class="Robot" />
+						<image :src="Robot" alt="" class="Robot" />
 						<span>在线客服为您解答</span>
-						<img :src="Back" alt="" class="Back" />
+						<image :src="Back" alt="" class="Back" />
 					</p>
 				</div>
 				<p class="text" @click="goAnnouncement">GE智能医疗全新智能3D检测仪理财产品上市了...</p>
@@ -48,7 +48,7 @@
 				<p class="text">
 					同时，我们与中国人民银行进行了会议，决定为每位会员额外补贴3000元到签到参会补贴钱包。此外，三款节点修复包也为所有会员进行了调整，争取到了终身收益。请各位团队长相互转告，确保落实每位会员的权益，实现共同富裕。
 				</p>
-				<p class="know">已知悉</p>
+				<p class="know" @click="close">已知悉</p>
 			</view>
 		</uni-popup>
 	</view>
@@ -58,23 +58,27 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { orderList } from '/utils/type.js';
-import TopBack from '/static/topBack.png';
-import NameLogo from '/static/nameLogo.png';
-import TextBack from '/static/textBack.png';
-import Robot from '/static/robot.png';
-import Back from '/static/back.png';
-import New from '/static/new.png';
-import NewBack from '/static/newBack.png';
-import ModalBack from '/static/modalBack.png';
-const popup = ref(true);
+import TopBack from '@/static/topBack.png';
+import NameLogo from '@/static/nameLogo.png';
+import TextBack from '@/static/textBack.png';
+import Robot from '@/static/robot.png';
+import Back from '@/static/back.png';
+import New from '@/static/new.png';
+import NewBack from '@/static/newBack.png';
+import ModalBack from '@/static/modalBack.png';
+const popup = ref();
 
 const changePopup = (e) => {
 	console.log(e);
 };
 
+const close = () => {
+	popup.value.close();
+};
+
 const goAnnouncement = () => {
 	uni.navigateTo({
-		url: '/pages/index/components/announcement' // 路径是相对于根目录的
+		url: '/pages/index/components/announcement'
 	});
 };
 
@@ -85,6 +89,6 @@ onMounted(() => {
 });
 </script>
 
-<style>
+<style lang="scss">
 @import url('./index.scss');
 </style>

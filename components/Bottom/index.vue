@@ -2,42 +2,25 @@
 	<view class="bottomBox">
 		<view class="tabItem" v-for="item in tabList" :key="item.key" @click="switchTab(item.pagePath, item.key)">
 			<div :class="{ showBack: item.key === 'node' }">
-				<img class="imgs" :src="[change(item.key, item.selectedIconPath, item.iconPath)]" />
+				<image class="imgs" :src="more === item.key ? item.selectedIconPath : item.iconPath" />
 			</div>
-			<img :class="{ hideImg: true, hideMoreImg: item.key === 'node' }" :src="item.iconPath" />
+			<image :class="{ hideImg: true, hideMoreImg: item.key === 'node' }" :src="item.iconPath" />
 			<p class="text" :style="{ color: change(item.key, '#024DF6', 'rgba(17, 17, 17, 0.4)') }">{{ item.name }}</p>
 		</view>
 	</view>
 </template>
 <script setup>
 // import { onShow } from '@dcloudio/uni-app';
-import Home from '/static/home.png';
-import HomeActive from '/static/homeActive.png';
-import Assets from '/static/assets.png';
-import AssetsActive from '/static/assetsActive.png';
-import My from '/static/my.png';
-import MyActive from '/static/myActive.png';
-import TradeZone from '/static/tradeZone.png';
-import TradeZoneActive from '/static/tradeZoneActive.png';
-import Node from '/static/node.png';
-const more = uni.getStorageSync('active');
-
-const change = (key, selectedIconPath, iconPath) => {
-	if (more) {
-		if (more === key) {
-			return selectedIconPath;
-		} else {
-			return iconPath;
-		}
-	} else {
-		if (key === 'home') {
-			return selectedIconPath;
-		} else {
-			return iconPath;
-		}
-	}
-};
-
+import Home from '@/static/home.png';
+import HomeActive from '@/static/homeActive.png';
+import Assets from '@/static/assets.png';
+import AssetsActive from '@/static/assetsActive.png';
+import My from '@/static/my.png';
+import MyActive from '@/static/myActive.png';
+import TradeZone from '@/static/tradeZone.png';
+import TradeZoneActive from '@/static/tradeZoneActive.png';
+import Node from '@/static/node.png';
+const more = uni.getStorageSync('active') || 'home';
 const tabList = [
 	{
 		pagePath: '/pages/index/index',
@@ -80,6 +63,14 @@ const tabList = [
 		key: 'my'
 	}
 ];
+const change = (key, selectedIconPath, iconPath) => {
+	if (more === key) {
+		return selectedIconPath;
+	} else {
+		return iconPath;
+	}
+};
+
 const switchTab = (pagePath, key) => {
 	uni.setStorageSync('active', key);
 	uni.switchTab({
@@ -93,6 +84,6 @@ const switchTab = (pagePath, key) => {
 // }
 </script>
 
-<style>
+<style lang="scss">
 @import url('./index.scss');
 </style>

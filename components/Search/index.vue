@@ -1,8 +1,8 @@
 <template>
 	<view class="searchBox">
-		<img src="/static/combine.svg" alt="" class="all" :style="{ display: hide === 'true' ? 'none' : 'block' }" />
+		<image src="@/static/combine.svg" alt="" class="all" :style="{ display: hide === 'true' ? 'none' : 'block' }" />
 		<div class="search">
-			<img src="/static/search.svg" alt="" class="img" />
+			<image src="@/static/search.svg" alt="" class="img" />
 			<uni-easyinput errorMessage class="input" v-model="value" focus placeholder="搜索" @input="input"></uni-easyinput>
 		</div>
 	</view>
@@ -21,6 +21,6 @@ const input = (e) => {
 };
 </script>
 
-<style>
+<style lang="scss">
 @import url('./index.scss');
 </style>

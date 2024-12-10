@@ -12,6 +12,6 @@
 import TopBack from '/components/TopBack/index.vue';
 </script>
 
-<style>
+<style lang="scss">
 @import url('./index.scss');
 </style>

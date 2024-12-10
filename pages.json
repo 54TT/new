@@ -3,25 +3,26 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
+				"navigationStyle": "custom", // 默认导航栏样式，'custom' 表示自定义导航栏
+				"enablePullDownRefresh": true
 			}
 		},
 		{
 			"path": "pages/assets/index",
 			"style": {
-				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path": "pages/my/index",
 			"style": {
-				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path": "pages/node/index",
 			"style": {
-				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
+				"navigationStyle": "custom"
 			}
 		},
 		{
@@ -33,44 +34,120 @@
 		{
 			"path": "pages/index/components/announcement",
 			"style": {
-				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path": "pages/index/components/announcementDetail",
 			"style": {
-				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path": "pages/node/components/PlaceAnOrder",
 			"style": {
-				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path": "pages/node/components/historyOrder",
 			"style": {
-				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path": "pages/tradeZone/components/historyTrade",
 			"style": {
-				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path": "pages/assets/components/topUp",
 			"style": {
-				"navigationStyle": "custom" // 默认导航栏样式，'custom' 表示自定义导航栏
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/assets/components/transfer",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/assets/components/withdrawCash",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/loginRegister/login",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/loginRegister/register",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/my/components/invite",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/my/components/team",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/my/components/account",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/my/components/password/tradePassword",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/my/components/password/accountPassword",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/my/components/pay",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/my/components/addPay/addAlipay",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/my/components/addPay/addUnionPay",
+			"style": {
+				"navigationStyle": "custom"
 			}
 		}
+
+
+
 
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "#ffffff",
-		"navigationBarTitleText": "uni-app"
+		"navigationBarTitleText": "uni-app",
+		"enablePullDownRefresh": true
 	},
 	"tabBar": {
 		"backgroundColor": "transparent", // TabBar 背景颜色

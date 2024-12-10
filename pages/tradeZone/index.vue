@@ -2,8 +2,8 @@
 	<view class="tradeZoneContent">
 		<div class="topBox">
 			<div class="left">
-				<img :src="TradeZoneThree" alt="" class="img" />
-				<img :src="Next" alt="" class="poImg" @click="goAmount" />
+				<image :src="TradeZoneThree" alt="" class="img" />
+				<image :src="Next" alt="" class="poImg" @click="goAmount" />
 				<div class="content">
 					<p class="text">账户余额</p>
 					<p class="num">7980</p>
@@ -11,10 +11,10 @@
 			</div>
 			<div class="right">
 				<div class="top" v-for="(i, index) in topRightList" :key="index">
-					<img :src="TradeZoneOne" alt="" class="img" />
+					<image :src="TradeZoneOne" alt="" class="img" />
 					<div class="content">
 						<p>{{ i.text }}</p>
-						<img :src="Next" alt="" class="poImg" @click="goOrder(i.his)" />
+						<image :src="Next" alt="" class="poImg" @click="goOrder(i.his)" />
 					</div>
 				</div>
 			</div>
@@ -22,8 +22,8 @@
 		<div class="bagBox">
 			<div class="bag" v-for="(i, index) in bagList" :key="index">
 				<div class="top">
-					<img :src="MoreBack" class="img" alt="" />
-					<img :src="Clock" class="Clock" alt="" />
+					<image :src="MoreBack" class="img" alt="" />
+					<image :src="Clock" class="Clock" alt="" />
 					<div class="content">上合数据金融包</div>
 				</div>
 				<div class="bot">
@@ -46,7 +46,7 @@
 						</div>
 					</div>
 					<div class="enter">
-						<img :src="i.img" alt="" class="img" />
+						<image :src="i.img" alt="" class="img" />
 						<p class="buy" @click="goBuy(index)">购买</p>
 					</div>
 				</div>
@@ -67,7 +67,6 @@
 				</div>
 			</view>
 		</uni-popup>
-
 		<TradeModal :show="show" :change="enter" />
 	</view>
 	<Tarbar />
@@ -75,15 +74,15 @@
 
 <script setup>
 import { ref } from 'vue';
-import TradeZoneThree from '/static/tradeZoneThree.png';
-import TradeZoneOne from '/static/tradeZoneTopOne.png';
-import TradeZoneTwo from '/static/tradeZoneTwo.png';
-import MoreBack from '/static/moreBack.png';
-import Clock from '/static/clock.png';
-import Next from '/static/next.png';
-import LongLine from '/static/longLine.png';
-import ShortLine from '/static/shortLine.png';
-import TradeModal from '/components/TradeModal/index.vue';
+import TradeZoneThree from '@/static/tradeZoneThree.png';
+import TradeZoneOne from '@/static/tradeZoneTopOne.png';
+import TradeZoneTwo from '@/static/tradeZoneTwo.png';
+import MoreBack from '@/static/moreBack.png';
+import Clock from '@/static/clock.png';
+import Next from '@/static/next.png';
+import LongLine from '@/static/longLine.png';
+import ShortLine from '@/static/shortLine.png';
+import TradeModal from '@/components/TradeModal/index.vue';
 const popup = ref();
 const show = ref(false);
 const topRightList = [
@@ -120,12 +119,12 @@ const goAmount = () => {};
 const goOrder = (url) => {
 	if (url) {
 		uni.navigateTo({
-			url: url // 路径是相对于根目录的
+			url: url
 		});
 	}
 };
 </script>
 
-<style>
+<style lang="scss">
 @import url('./index.scss');
 </style>

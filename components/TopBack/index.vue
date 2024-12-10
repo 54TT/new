@@ -1,12 +1,12 @@
 <template>
 	<view class="topBox">
-		<img :src="Back" @click="goBack" alt="" class="img" />
+		<image :src="Back" @click="goBack" alt="" class="img" />
 		<span class="text">{{ text }}</span>
 		<span>{{ right }}</span>
 	</view>
 </template>
 <script setup>
-import Back from '/static/goBack.png';
+import Back from '@/static/goBack.png';
 import { defineProps } from 'vue';
 const { text, url, right, isTabbar } = defineProps({
 	text: String,
@@ -27,6 +27,6 @@ const goBack = () => {
 };
 </script>
 
-<style>
+<style lang="scss">
 @import url('./index.scss');
 </style>

@@ -2,12 +2,12 @@
 	<view class="assetsContent">
 		<div class="topBox">
 			<div class="center">
-				<img :src="AssetsTopBack" alt="" class="img" />
+				<image :src="AssetsTopBack" alt="" class="img" />
 				<div class="content">
 					<p class="title">累计已签到天数</p>
 					<div class="sign">
 						<div class="left">
-							<img :src="AssetsTopBackJian" alt="" class="img" />
+							<image :src="AssetsTopBackJian" alt="" class="img" />
 							<p class="text">12</p>
 						</div>
 						<div class="right">签到</div>
@@ -23,7 +23,7 @@
 			</div>
 
 			<div class="amount">
-				<img :src="AmountBack" alt="" class="img" />
+				<image :src="AmountBack" alt="" class="img" />
 				<div class="content">
 					<p class="text">可提现余额</p>
 					<p class="num">40000.00</p>
@@ -48,9 +48,9 @@
 </template>
 
 <script setup>
-import AssetsTopBack from '/static/assetsTopBack.png';
-import AmountBack from '/static/amountBack.png';
-import AssetsTopBackJian from '/static/assetsTopBackJian.png';
+import AssetsTopBack from '@/static/assetsTopBack.png';
+import AmountBack from '@/static/amountBack.png';
+import AssetsTopBackJian from '@/static/assetsTopBackJian.png';
 
 const directionsList = [
 	{ text: '债务基本余额', num: '40000.00' },
@@ -63,17 +63,25 @@ const directionsList = [
 	{ text: '节点修复钱包', num: '10' }
 ];
 
-const withdrawCash = () => {};
+const withdrawCash = () => {
+	uni.navigateTo({
+		url: '/pages/assets/components/withdrawCash'
+	});
+};
 
-const transfer = () => {};
+const transfer = () => {
+	uni.navigateTo({
+		url: '/pages/assets/components/transfer'
+	});
+};
 
 const goTopUp = () => {
 	uni.navigateTo({
-		url: '/pages/assets/components/topUp' // 路径是相对于根目录的
+		url: '/pages/assets/components/topUp'
 	});
 };
 </script>
 
-<style>
+<style lang="scss">
 @import url('./index.scss');
 </style>
