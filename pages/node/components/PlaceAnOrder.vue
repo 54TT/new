@@ -17,6 +17,7 @@
 
 <script setup>
 import { ref } from 'vue';
+import { onPullDownRefresh } from '@dcloudio/uni-app';
 import TopBack from '/components/TopBack/index.vue';
 import TradeModal from '/components/TradeModal/index.vue';
 import Close from '@/static/close.png';
@@ -34,6 +35,16 @@ const inputList = [
 	{ title: '收货人电话', key: 'phone' },
 	{ title: '收货地址', key: 'address' }
 ];
+
+// 下拉刷新逻辑
+onPullDownRefresh(() => {
+	setTimeout(() => {
+		console.log(1111111111111);
+		// 停止下拉刷新动画
+		uni.stopPullDownRefresh();
+		console.log(222222222222);
+	}, 2000); // 模拟延迟 1.5 秒
+});
 </script>
 
 <style lang="scss">

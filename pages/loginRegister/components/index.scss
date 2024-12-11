@@ -1,4 +1,5 @@
 .moreBoxToken {
+	height: 100vh;
 	.displayNoneMore {
 		display: none !important;
 	}
@@ -27,6 +28,7 @@
 	}
 	& > .contentBox {
 		margin-top: -20px;
+		height: 100%;
 		position: relative;
 		background: #f2f6ff;
 		padding: 22px 16px 15px;
@@ -59,7 +61,8 @@
 			color: rgba(17, 17, 17, 0.6);
 
 			& > .img {
-				width: fit-content;
+				width: 12px;
+				height: 12px;
 				cursor: pointer;
 			}
 			& > .text {
@@ -100,9 +103,11 @@
 			& > .img {
 				position: absolute;
 				top: 50%;
+				cursor: pointer;
 				right: 15px;
 				transform: translateY(-50%);
-				width: fit-content;
+				width: 20px;
+				height: 20px;
 			}
 		}
 	}

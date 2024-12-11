@@ -1,6 +1,5 @@
 body {
 	box-sizing: border-box;
-	height: 100vh;
 	div,
 	p,
 	span {
@@ -10,13 +9,14 @@ body {
 		text-transform: none;
 	}
 }
-* {
+*,
+.uni-page {
 	margin: 0;
 	padding: 0;
 }
 
-img {
-	display: block;
+.uni-tabbar-bottom {
+	display: none;
 }
 
 // 三角形

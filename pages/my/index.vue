@@ -31,9 +31,9 @@
 			<div class="item itemLogout">
 				<div class="left">
 					<image :src="Logout" class="img" alt="" />
-					<p class="text" @click="logout">退出登录</p>
+					<p class="text">退出登录</p>
 				</div>
-				<image :src="MyRight" class="img" alt="" @click="" />
+				<image :src="MyRight" class="img" alt="" @click="logout" />
 			</div>
 		</div>
 		<!-- copy -->
@@ -49,6 +49,7 @@
 
 <script setup>
 import { ref } from 'vue';
+import { onPullDownRefresh } from '@dcloudio/uni-app';
 import MyBack from '@/static/myBack.png';
 import Copy from '@/static/copy.png';
 import MyRight from '@/static/myRight.png';
@@ -88,6 +89,16 @@ const goCopy = () => {
 const logout = () => {
 	logoutDialog.value.open();
 };
+
+// 下拉刷新逻辑
+onPullDownRefresh(() => {
+	setTimeout(() => {
+		console.log(1111111111111);
+		// 停止下拉刷新动画
+		uni.stopPullDownRefresh();
+		console.log(222222222222);
+	}, 2000); // 模拟延迟 1.5 秒
+});
 </script>
 
 <style lang="scss">

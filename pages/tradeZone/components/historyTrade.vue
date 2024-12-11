@@ -10,13 +10,14 @@
 			</div>
 		</div>
 		<div class="listBox">
-			<Order :orderParams="orderParams" height="calc(100vh - 125px)" :status="select === 'history' ? 'tradeZoneHistory' : 'tradeZoneIncome'" />
+			<Order :orderParams="orderParams" height="calc(100vh - 170px)" :status="select === 'history' ? 'tradeZoneHistory' : 'tradeZoneIncome'" />
 		</div>
 	</view>
 </template>
 
 <script setup>
 import { ref } from 'vue';
+import { onPullDownRefresh } from '@dcloudio/uni-app';
 import TopBack from '/components/TopBack/index.vue';
 import Order from '/components/Order/index.vue';
 import OptionLeft from '@/static/optionLeft.png';
@@ -37,6 +38,15 @@ const select = ref('history');
 const changeKey = (key) => {
 	select.value = key;
 };
+// 下拉刷新逻辑
+onPullDownRefresh(() => {
+	setTimeout(() => {
+		console.log(1111111111111);
+		// 停止下拉刷新动画
+		uni.stopPullDownRefresh();
+		console.log(222222222222);
+	}, 2000); // 模拟延迟 1.5 秒
+});
 </script>
 
 <style lang="scss">

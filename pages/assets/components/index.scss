@@ -1,5 +1,5 @@
 .topUpBox {
-	padding: 20px 16px;
+	padding: 60px 16px 20px;
 	& > .topUpBoxMore {
 		position: fixed;
 		bottom: 0;
@@ -102,7 +102,7 @@
 				display: flex;
 				align-items: center;
 				margin-bottom: 12px;
-				& > img {
+				& > .img {
 					width: 20px;
 					height: 20px;
 					margin-right: 6px;
@@ -118,7 +118,7 @@
 }
 
 .transferBox {
-	padding: 20px 16px;
+	padding: 60px 16px 20px;
 	& > .amountBox {
 		background: #f2f6ff;
 		border-radius: 12px;
@@ -181,7 +181,8 @@
 			& > .textA {
 				flex: 1;
 				& > .img {
-					width: fit-content;
+					width: 20px;
+					height: 20px;
 					margin: 0 auto;
 					display: block;
 				}
@@ -230,7 +231,7 @@
 }
 
 .withdrawCashBox {
-	padding: 20px 16px;
+	padding: 60px 16px 20px;
 	& > .item {
 		margin-bottom: 24px;
 		& > .text {

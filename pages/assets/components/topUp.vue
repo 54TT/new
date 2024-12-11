@@ -8,7 +8,7 @@
 		<div class="orderList">
 			<div :class="{ item: true, activeItem: active === i.key ? true : false }" v-for="i in UnionPayList" :key="i.key" @click="getNumber(i.key)">
 				<p class="title">
-					<image :src="option === 'UnionPay' ? UnionPay : option === 'WeChat' ? WeChat : Alipay" alt="" />
+					<image class="img" :src="option === 'UnionPay' ? UnionPay : option === 'WeChat' ? WeChat : Alipay" alt="" />
 					<span>{{ option === 'UnionPay' ? '银联支付' : option === 'WeChat' ? '微信支付' : '支付宝支付' }}</span>
 				</p>
 				<p class="text">{{ i.text }}</p>
@@ -64,6 +64,7 @@
 
 <script setup>
 import { ref } from 'vue';
+import { onPullDownRefresh } from '@dcloudio/uni-app';
 import TopBack from '/components/TopBack/index.vue';
 import WeChat from '@/static/unionPay.png';
 import UnionPay from '@/static/WeChat.png';
@@ -115,6 +116,16 @@ const selectOption = (key) => {
 		active.value = '';
 	}
 };
+
+// 下拉刷新逻辑
+onPullDownRefresh(() => {
+	setTimeout(() => {
+		console.log(1111111111111);
+		// 停止下拉刷新动画
+		uni.stopPullDownRefresh();
+		console.log(222222222222);
+	}, 2000); // 模拟延迟 1.5 秒
+});
 </script>
 
 <style lang="scss">

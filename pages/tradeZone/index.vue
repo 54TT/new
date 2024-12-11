@@ -46,13 +46,12 @@
 						</div>
 					</div>
 					<div class="enter">
-						<image :src="i.img" alt="" class="img" />
+						<image :src="i.img" alt="" class="img" :style="{ maxWidth: i.imgStatus === 'short' ? '64px' : '110px' }" />
 						<p class="buy" @click="goBuy(index)">购买</p>
 					</div>
 				</div>
 			</div>
 		</div>
-
 		<uni-popup ref="popup" class="tradeZonePopupBox" background-color="#fff" @change="changePopup">
 			<view class="popup-content">
 				<p class="title">购买确认</p>
@@ -73,6 +72,7 @@
 </template>
 
 <script setup>
+import { onPullDownRefresh } from '@dcloudio/uni-app';
 import { ref } from 'vue';
 import TradeZoneThree from '@/static/tradeZoneThree.png';
 import TradeZoneOne from '@/static/tradeZoneTopOne.png';
@@ -90,10 +90,10 @@ const topRightList = [
 	{ img: TradeZoneTwo, text: '历史订单', his: '/pages/tradeZone/components/historyTrade' }
 ];
 const bagList = [
-	{ schedule: '46%', get: '49', date: '22', amount: '23', img: LongLine },
-	{ schedule: '46%', get: '32', date: '34', amount: '41', img: ShortLine },
-	{ schedule: '46%', get: '64', date: '66', amount: '43', img: LongLine },
-	{ schedule: '46%', get: '63', date: '66', amount: '22', img: ShortLine }
+	{ schedule: '46%', get: '49', date: '22', amount: '23', img: LongLine, imgStatus: 'long' },
+	{ schedule: '46%', get: '32', date: '34', amount: '41', img: ShortLine, imgStatus: 'short' },
+	{ schedule: '46%', get: '64', date: '66', amount: '43', img: LongLine, imgStatus: 'long' },
+	{ schedule: '46%', get: '63', date: '66', amount: '22', img: ShortLine, imgStatus: 'short' }
 ];
 
 const enter = () => {
@@ -123,6 +123,16 @@ const goOrder = (url) => {
 		});
 	}
 };
+
+// 下拉刷新逻辑
+onPullDownRefresh(() => {
+	setTimeout(() => {
+		console.log(1111111111111);
+		// 停止下拉刷新动画
+		uni.stopPullDownRefresh();
+		console.log(222222222222);
+	}, 2000); // 模拟延迟 1.5 秒
+});
 </script>
 
 <style lang="scss">

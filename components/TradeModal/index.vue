@@ -35,7 +35,7 @@
 						<p class="t1">{{ i.en }}</p>
 					</div>
 					<div class="one" v-else>
-						<image :src="i.img" alt="" v-if="i.img" />
+						<image :src="i.img" alt="" class="imgClose" v-if="i.img" />
 						<span v-else>{{ i.number }}</span>
 					</div>
 				</div>

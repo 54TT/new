@@ -2,15 +2,16 @@
 	<view class="bottomBox">
 		<view class="tabItem" v-for="item in tabList" :key="item.key" @click="switchTab(item.pagePath, item.key)">
 			<div :class="{ showBack: item.key === 'node' }">
-				<image class="imgs" :src="more === item.key ? item.selectedIconPath : item.iconPath" />
+				<image class="imgs" :src="current === item.pagePath ? item.selectedIconPath : item.iconPath" />
 			</div>
 			<image :class="{ hideImg: true, hideMoreImg: item.key === 'node' }" :src="item.iconPath" />
-			<p class="text" :style="{ color: change(item.key, '#024DF6', 'rgba(17, 17, 17, 0.4)') }">{{ item.name }}</p>
+			<p class="text" :style="{ color: current === item.pagePath ? '#024DF6' : 'rgba(17, 17, 17, 0.4)' }">{{ item.name }}</p>
 		</view>
 	</view>
 </template>
 <script setup>
-// import { onShow } from '@dcloudio/uni-app';
+import { onShow } from '@dcloudio/uni-app';
+import { ref } from 'vue';
 import Home from '@/static/home.png';
 import HomeActive from '@/static/homeActive.png';
 import Assets from '@/static/assets.png';
@@ -20,10 +21,10 @@ import MyActive from '@/static/myActive.png';
 import TradeZone from '@/static/tradeZone.png';
 import TradeZoneActive from '@/static/tradeZoneActive.png';
 import Node from '@/static/node.png';
-const more = uni.getStorageSync('active') || 'home';
+const current = ref('pages/index/index');
 const tabList = [
 	{
-		pagePath: '/pages/index/index',
+		pagePath: 'pages/index/index',
 		state: true,
 		iconPath: Home,
 		selectedIconPath: HomeActive,
@@ -31,7 +32,7 @@ const tabList = [
 		key: 'home'
 	},
 	{
-		pagePath: '/pages/tradeZone/index',
+		pagePath: 'pages/tradeZone/index',
 		state: false,
 		iconPath: TradeZone,
 		selectedIconPath: TradeZoneActive,
@@ -39,7 +40,7 @@ const tabList = [
 		key: 'tradeZone'
 	},
 	{
-		pagePath: '/pages/node/index',
+		pagePath: 'pages/node/index',
 		state: false,
 		iconPath: Node,
 		selectedIconPath: Node,
@@ -47,7 +48,7 @@ const tabList = [
 		key: 'node'
 	},
 	{
-		pagePath: '/pages/assets/index',
+		pagePath: 'pages/assets/index',
 		state: false,
 		iconPath: Assets,
 		selectedIconPath: AssetsActive,
@@ -55,7 +56,7 @@ const tabList = [
 		key: 'assets'
 	},
 	{
-		pagePath: '/pages/my/index',
+		pagePath: 'pages/my/index',
 		state: false,
 		iconPath: My,
 		selectedIconPath: MyActive,
@@ -63,25 +64,22 @@ const tabList = [
 		key: 'my'
 	}
 ];
-const change = (key, selectedIconPath, iconPath) => {
-	if (more === key) {
-		return selectedIconPath;
-	} else {
-		return iconPath;
-	}
-};
 
 const switchTab = (pagePath, key) => {
 	uni.setStorageSync('active', key);
 	uni.switchTab({
-		url: pagePath
+		url: '/' + pagePath
 	});
 };
-// const getRouter = async () => {
-// 	const data = await getCurrentPages()
-// 	const currentPage = data[data.length - 1];
-// 	const route = currentPage.route;
-// }
+const getRouter = async () => {
+	const data = await getCurrentPages();
+	const currentPage = data[data.length - 1];
+	const route = currentPage.route;
+	current.value = route;
+};
+onShow(() => {
+	getRouter();
+});
 </script>
 
 <style lang="scss">

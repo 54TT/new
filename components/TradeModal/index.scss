@@ -28,6 +28,10 @@
 							font-size: 25px;
 							text-align: center;
 							color: #000000;
+							.imgClose {
+								max-width: 22px;
+								max-height: 18px;
+							}
 						}
 						& > .two {
 							& > .t {

@@ -9,33 +9,20 @@
 		</div>
 
 		<div class="contentBox">
-			<input type="text" @input="(e) => changeInput(e, 'phone')" placeholder="请输入手机号码" placeholder-class="placeholderClass" class="inputBox" />
-			<div class="passwordBox">
-				<input
-					@input="(e) => changeInput(e, 'passwordOne')"
-					:type="passwordStatus.one ? 'text' : 'password'"
-					placeholder="请输入密码(6-12位字母或数字)"
-					placeholder-class="placeholderClass"
-					class="inputBox inputBoxPass"
-				/>
-				<image :src="passwordStatus.one ? ShowEare : Hide" alt="" class="img" @click="showHide('one')" />
-			</div>
-			<div :class="{ displayNoneMore: props.status === 'login' ? true : false }">
-				<div class="passwordBox">
+			<view v-for="i in inputList" :key="i.key">
+				<div v-if="i.hide"></div>
+				<div class="passwordBox" v-else-if="i.password">
 					<input
-						:type="passwordStatus.two ? 'text' : 'password'"
-						@input="(e) => changeInput(e, 'passwordTwo')"
-						placeholder="请再次输入密码"
+						@input="(e) => changeInput(e, i.key)"
+						:type="passwordStatus[i.key] ? 'text' : 'password'"
+						:placeholder="i.pl"
 						placeholder-class="placeholderClass"
 						class="inputBox inputBoxPass"
 					/>
-					<image :src="passwordStatus.two ? ShowEare : Hide" alt="" class="img" @click="showHide('two')" />
+					<image :src="passwordStatus[i.key] ? ShowEare : Hide" alt="" class="img" @click="showHide(i.key)" />
 				</div>
-				<input type="text" @input="(e) => changeInput(e, 'name')" placeholder="请输入您的真实姓名" placeholder-class="placeholderClass" class="inputBox" />
-				<input type="text" @input="(e) => changeInput(e, 'card')" placeholder="请输入身份证号码" placeholder-class="placeholderClass" class="inputBox" />
-				<input type="text" @input="(e) => changeInput(e, 'code')" placeholder="邀请码" placeholder-class="placeholderClass" class="inputBox" />
-			</div>
-
+				<input v-else type="text" @input="(e) => changeInput(e, i.key)" :placeholder="i.pl" placeholder-class="placeholderClass" class="inputBox" />
+			</view>
 			<!-- 登录 -->
 			<p class="enter" @click="enter">{{ props.status === 'login' ? '登录' : '注册' }}</p>
 			<p class="go">
@@ -54,7 +41,8 @@
 </template>
 
 <script setup>
-import { ref, defineProps } from 'vue';
+import { onPullDownRefresh } from '@dcloudio/uni-app';
+import { ref, defineProps, watch } from 'vue';
 import LoginTopBack from '@/static/loginTopBack.png';
 import Agree from '@/static/agree.png';
 import AgreeActive from '@/static/agreeActive.png';
@@ -63,9 +51,16 @@ import ShowEare from '@/static/showEare.png';
 const props = defineProps({
 	status: String // 定义要接收的参数
 });
-
+const inputList = [
+	{ pl: '请输入手机号码', key: 'phone' },
+	{ pl: '请输入密码(6-12位字母或数字)', key: 'passwordOne', password: true },
+	{ pl: '请再次输入密码', key: 'passwordTwo', password: true, hide: props.status === 'login' },
+	{ pl: '请输入您的真实姓名', key: 'name', hide: props.status === 'login' },
+	{ pl: '请输入身份证号码', key: 'card', hide: props.status === 'login' },
+	{ pl: '邀请码', key: 'code', hide: props.status === 'login' }
+];
 // 两个密码框的  显示隐藏
-const passwordStatus = ref({ one: false, two: false });
+const passwordStatus = ref({ passwordOne: false, passwordTwo: false });
 // input  value
 const allValue = ref({ phone: '', passwordOne: '', passwordTwo: '', code: '', card: '', name: '' });
 // 是否同意
@@ -91,13 +86,23 @@ const goHis = () => {
 		});
 	}
 };
-
 // 确认
 const enter = () => {
 	if (props.status === 'login') {
 	} else {
 	}
 };
+
+// 下拉刷新逻辑
+onPullDownRefresh(() => {
+	console.log(44444444444444444);
+	setTimeout(() => {
+		console.log(1111111111111);
+		// 停止下拉刷新动画
+		// uni.stopPullDownRefresh();
+		console.log(222222222222);
+	}, 2000); // 模拟延迟 1.5 秒
+});
 </script>
 
 <style lang="scss">

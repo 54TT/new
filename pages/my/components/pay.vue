@@ -21,7 +21,7 @@
 							<div class="content" v-for="(item, ind) in i.data" :key="ind">
 								<div class="left">
 									<p class="name">
-										<image :src="i.img" alt="" />
+										<image :src="i.img" class="img" alt="" />
 										<span>{{ item.text }}</span>
 									</p>
 									<p class="num">{{ item.num }}</p>
@@ -37,6 +37,7 @@
 </template>
 
 <script setup>
+import { onPullDownRefresh } from '@dcloudio/uni-app';
 import TopBack from '/components/TopBack/index.vue';
 import UnionPay from '@/static/WeChat.png';
 import Alipay from '@/static/Alipay.png';
@@ -90,6 +91,16 @@ const add = (key) => {
 		});
 	}
 };
+
+// 下拉刷新逻辑
+onPullDownRefresh(() => {
+	setTimeout(() => {
+		console.log(1111111111111);
+		// 停止下拉刷新动画
+		uni.stopPullDownRefresh();
+		console.log(222222222222);
+	}, 2000); // 模拟延迟 1.5 秒
+});
 </script>
 <style lang="scss">
 @import url('./index.scss');

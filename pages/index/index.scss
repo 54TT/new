@@ -1,20 +1,22 @@
 .homeContent {
-	padding-bottom: 75px;
+	padding-bottom: 5px;
+	min-height: 100vh;
 	& > .top {
 		position: relative;
 		& > .topBack {
 			width: 100%;
-			max-height: 240px;
+			height: 280px;
 		}
 		& > .content {
 			position: absolute;
-			top: 16px;
+			top: 56px;
 			left: 50%;
 			transform: translateX(-50%);
 			width: calc(100% - 32px);
 			& > .name {
-				width: fit-content;
+				width: 80%;
 				margin-bottom: 18px;
+				max-height: 22px;
 			}
 			& > .text {
 				width: 100%;
@@ -26,6 +28,7 @@
 		position: relative;
 		& > .NewBack {
 			width: 100%;
+			max-height: 90px;
 		}
 		margin: 20px 16px 24px;
 		& > .content {
@@ -38,7 +41,7 @@
 				cursor: pointer;
 				font-size: 14px;
 				width: fit-content;
-				margin-top: 18px;
+				margin-top: 20px;
 				color: #111111;
 			}
 			& > .top {
@@ -51,6 +54,7 @@
 						width: 65%;
 						display: block;
 						min-width: 80px;
+						max-height: 16px;
 					}
 				}
 				& > .right {
@@ -63,6 +67,7 @@
 					}
 					& > .Back {
 						width: 10px;
+						max-height: 6px;
 					}
 					& > span {
 						font-weight: 400;

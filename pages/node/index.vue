@@ -6,10 +6,10 @@
 				<p class="text">计算机余额</p>
 				<p class="num">7980</p>
 				<div class="bot">
-					<image :src="Next" alt="" />
+					<image :src="Next" alt="" class="goImg" />
 					<div class="history">
 						<span class="text" @click="history">历史订单</span>
-						<image :src="WhiteBack" alt="" />
+						<image :src="WhiteBack" alt="" class="img" />
 					</div>
 				</div>
 			</div>
@@ -45,6 +45,7 @@
 </template>
 
 <script setup>
+import { onPullDownRefresh } from '@dcloudio/uni-app';
 import NodeTopBack from '@/static/nodeTopBack.png';
 import WhiteBack from '@/static/whiteBack.png';
 import Next from '@/static/next.png';
@@ -69,6 +70,15 @@ const history = () => {
 		url: '/pages/node/components/historyOrder'
 	});
 };
+// 下拉刷新逻辑
+onPullDownRefresh(() => {
+	setTimeout(() => {
+		console.log(1111111111111);
+		// 停止下拉刷新动画
+		uni.stopPullDownRefresh();
+		console.log(222222222222);
+	}, 2000); // 模拟延迟 1.5 秒
+});
 </script>
 
 <style lang="scss">

@@ -2,9 +2,9 @@
 	background-image: url('@/static/myBack.png');
 	background-repeat: no-repeat;
 	background-size: 100%;
-	height: 100vh;
+	min-height: 100vh;
 	box-sizing: border-box;
-	padding: 75px 16px;
+	padding: 115px 16px 5px;
 	& > .itemBox {
 		overflow: hidden;
 		border-radius: 12px;
@@ -117,7 +117,8 @@
 			& > .img {
 				cursor: pointer;
 				margin-left: 4px;
-				width: fit-content;
+				width: 16px;
+				height: 16px;
 			}
 		}
 		& > .phone {
