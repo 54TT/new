@@ -16,9 +16,11 @@ body {
 }
 
 .uni-tabbar-bottom {
-	display: none;
+	display: none !important;
 }
-
+tab-bar {
+	display: none !important; /* 强制隐藏默认 tabBar */
+}
 // 三角形
 .thrdsadasdsdsadsadsaddadsdadaee {
 	width: 20px;

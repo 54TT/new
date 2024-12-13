@@ -57,7 +57,6 @@ const changeData = (i) => {
 watch(
 	() => props.status,
 	(oldValue, _) => {
-		console.log(oldValue);
 		optionStatus.value = oldValue;
 	}
 );

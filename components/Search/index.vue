@@ -14,11 +14,7 @@ const { hide } = defineProps({
 	hide: 'true' // 定义要接收的参数
 });
 
-console.log(hide);
-console.log(true);
-const input = (e) => {
-	console.log('输入内容：', e);
-};
+const input = (e) => {};
 </script>
 
 <style lang="scss">

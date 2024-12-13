@@ -1,7 +1,7 @@
 import {
 	defineStore
 } from "pinia";
-export const useRefreshStore = defineStore("counter", {
+export const useRefreshStore = defineStore("refresh", {
 	// 定义状态
 	state: () => ({
 		count: 0,

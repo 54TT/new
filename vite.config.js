@@ -13,12 +13,18 @@ export default defineConfig({
 	},
 	server: {
 		proxy: {
-			'/api': {
-				target: 'http://demoapi.yuejian.live/api.php',
+			// '/api': {
+			// 	target: 'http://demoapi.yuejian.live/api.php',
+			// 	changeOrigin: true,
+			// 	rewrite: (path) => {
+			// 		return path.replace(/^\/api/, '');
+			// 	}
+			// },
+
+			'/api.php': {
+				target: 'https://siyudemoapi.cips.cc/api.php',
 				changeOrigin: true,
-				rewrite: (path) => {
-					return path.replace(/^\/api/, '');
-				}
+				rewrite: (path) => path.replace(/^\/api.php/, ''),
 			}
 		}
 	}

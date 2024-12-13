@@ -29,14 +29,25 @@
 				{{ props.status === 'login' ? '没有账号?' : '已有账号?' }}
 				<span @click="goHis">{{ props.status === 'login' ? '去注册' : '去登录' }}</span>
 			</p>
-			<p :class="{ agree: true, position: props.status === 'login' ? true : false }">
+			<p :class="{ agree: true, position: true }">
 				<image :src="agreeStatus ? AgreeActive : Agree" alt="" class="img" @click="changeAgree" />
 				我已阅读并同意
-				<span class="text">《用户协议》</span>
+				<span class="text" @click="UserAgreement">《用户协议》</span>
 				及
-				<span class="text">《隐私条款》</span>
+				<span class="text" @click="privacy">《隐私条款》</span>
 			</p>
 		</div>
+		<!-- 提示信息 -->
+		<uni-popup ref="message" type="message" class="loginPopupBoxMessage">
+			<uni-popup-message :type="msgType" :message="messageText" :duration="2000"></uni-popup-message>
+		</uni-popup>
+		<!--  条款 信息 -->
+		<uni-popup ref="popup" class="loginPopupBoxMore" background-color="#fff">
+			<div class="boxMore">
+				<rich-text v-if="TextStatus === 'UserAgreement'" :nodes="UserAgreementText"></rich-text>
+				<rich-text v-else :nodes="PrivacyPolicy"></rich-text>
+			</div>
+		</uni-popup>
 	</view>
 </template>
 
@@ -48,9 +59,19 @@ import Agree from '@/static/agree.png';
 import AgreeActive from '@/static/agreeActive.png';
 import Hide from '@/static/hide.png';
 import ShowEare from '@/static/showEare.png';
+import { getTermsAgreement, getPrivacyPolicy, goUserRegister, goUserLogin } from '@/request/api';
+import { isPhoneNumber } from '@/utils/index';
 const props = defineProps({
 	status: String // 定义要接收的参数
 });
+const popup = ref();
+const UserAgreementText = ref();
+const TextStatus = ref('');
+const PrivacyPolicy = ref();
+const message = ref();
+const msgType = ref('');
+const messageText = ref('');
+
 const inputList = [
 	{ pl: '请输入手机号码', key: 'phone' },
 	{ pl: '请输入密码(6-12位字母或数字)', key: 'passwordOne', password: true },
@@ -75,6 +96,38 @@ const changeAgree = () => {
 const changeInput = (e, key) => {
 	allValue.value = { ...allValue.value, [key]: e.detail.value };
 };
+
+const changeMessage = (type, text) => {
+	msgType.value = type;
+	messageText.value = text;
+	message.value.open();
+};
+
+const UserAgreement = async () => {
+	TextStatus.value = 'UserAgreement';
+	if (UserAgreementText.value) {
+		popup.value.open('bottom');
+	} else {
+		const data = await getTermsAgreement();
+		if (data?.data?.content) {
+			UserAgreementText.value = data?.data?.content;
+			popup.value.open('bottom');
+		}
+	}
+};
+const privacy = async () => {
+	TextStatus.value = 'PrivacyPolicy';
+	if (PrivacyPolicy.value) {
+		popup.value.open('bottom');
+	} else {
+		const data = await getPrivacyPolicy();
+		if (data?.data?.content) {
+			PrivacyPolicy.value = data?.data?.content;
+			popup.value.open('bottom');
+		}
+	}
+};
+
 const goHis = () => {
 	if (props.status === 'login') {
 		uni.navigateTo({
@@ -87,20 +140,56 @@ const goHis = () => {
 	}
 };
 // 确认
-const enter = () => {
+const enter = async () => {
+	const { phone, passwordOne, passwordTwo, card, name, code } = allValue.value;
 	if (props.status === 'login') {
+		// 判断手机号是否合法
+		if (isPhoneNumber(phone)) {
+			// 是否输入密码
+			if (passwordOne) {
+				const data = await goUserLogin({ account: phone, password: passwordOne });
+				if (data?.data?.token) {
+					uni.setStorageSync('token', data?.data?.token);
+					uni.reLaunch({
+						url: '/pages/index/index'
+					});
+				}
+			} else {
+				changeMessage('warnning', '请正确输入密码');
+			}
+		} else {
+			changeMessage('warnning', '请正确输入手机号码');
+		}
 	} else {
+		// 判断手机号是否合法
+		if (isPhoneNumber(phone)) {
+			// 判断数据是否有
+			if (passwordOne && passwordTwo && card && name) {
+				if (passwordOne === passwordTwo) {
+					const data = await goUserRegister({ account: phone, password: passwordOne, realName: name, idCard: card, inviteCode: code });
+					if (data?.data?.token) {
+						uni.setStorageSync('token', data?.data?.token);
+						uni.reLaunch({
+							url: '/pages/index/index'
+						});
+					}
+				} else {
+					changeMessage('warnning', '两次密码不一致');
+				}
+			} else {
+				changeMessage('warnning', '数据请填写完整');
+			}
+		} else {
+			changeMessage('warnning', '请正确输入手机号码');
+		}
 	}
 };
 
 // 下拉刷新逻辑
 onPullDownRefresh(() => {
-	console.log(44444444444444444);
 	setTimeout(() => {
-		console.log(1111111111111);
 		// 停止下拉刷新动画
-		// uni.stopPullDownRefresh();
-		console.log(222222222222);
+		uni.stopPullDownRefresh();
 	}, 2000); // 模拟延迟 1.5 秒
 });
 </script>

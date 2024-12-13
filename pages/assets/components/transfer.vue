@@ -48,7 +48,6 @@ const changInput = (e, i) => {
 };
 
 const withdraw = (key) => {
-	console.log(key);
 	console.log(inputValue.value);
 };
 

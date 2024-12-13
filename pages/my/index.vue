@@ -74,7 +74,10 @@ const informationList = [
 ];
 
 const dialogConfirm = () => {
-	console.log('点击确认');
+	uni.removeStorageSync('token');
+	uni.navigateTo({
+		url: '/pages/loginRegister/login'
+	});
 };
 
 const goDetail = (key) => {

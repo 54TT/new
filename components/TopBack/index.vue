@@ -16,7 +16,7 @@ const { text, url, right, isTabbar } = defineProps({
 });
 const goBack = () => {
 	if (isTabbar) {
-		uni.switchTab({
+		uni.reLaunch({
 			url: url
 		});
 	} else {

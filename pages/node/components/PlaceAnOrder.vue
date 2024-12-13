@@ -49,4 +49,5 @@ onPullDownRefresh(() => {
 
 <style lang="scss">
 @import url('./index.scss');
+@import url('/components/TradeModal/index.scss');
 </style>

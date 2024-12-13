@@ -55,8 +55,6 @@ const updateParentHeight = () => {
 onMounted(() => {
 	updateParentHeight(); // 页面加载时也获取子元素的高度
 });
-
-console.log(swiperHeight.value);
 </script>
 
 <style lang="scss">

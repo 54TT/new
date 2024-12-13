@@ -38,9 +38,8 @@
 				</div>
 			</div>
 		</div>
-		<uni-popup ref="popup" class="popupBoxMore" background-color="#fff" @change="changePopup">
+		<uni-popup ref="popup" class="popupBoxMore" background-color="#fff">
 			<view class="popup-content">
-				<!-- modalBack.png -->
 				<p class="tittle">沙盒计划项目组致用户</p>
 				<p class="text">
 					截至目前，数据恢复工作仍在持续进行中，每当我们修复一项数据时，美西方等反华势力便会趁机制造新的混乱。经过近几日与上级及网信办的沟通，我们决定从根本上解决数据丢失的问题，为每位CIPS会员提供节点修复包。通过节点修复包累计提现15次，验证每一位会员的账户信息。
@@ -67,16 +66,13 @@ import Back from '@/static/back.png';
 import New from '@/static/new.png';
 import NewBack from '@/static/newBack.png';
 import ModalBack from '@/static/modalBack.png';
+import { useDataStore } from '@/stores/data';
+import { getUserInfo } from '@/request/api';
 const popup = ref();
-
-const changePopup = (e) => {
-	console.log(e);
-};
-
+const useData = useDataStore();
 const close = () => {
 	popup.value.close();
 };
-
 const goAnnouncement = () => {
 	uni.navigateTo({
 		url: '/pages/index/components/announcement'
@@ -85,16 +81,21 @@ const goAnnouncement = () => {
 // 下拉刷新逻辑
 onPullDownRefresh(() => {
 	setTimeout(() => {
-		console.log(1111111111111);
 		// 停止下拉刷新动画
 		uni.stopPullDownRefresh();
-		console.log(222222222222);
 	}, 2000); // 模拟延迟 1.5 秒
 });
+
 onMounted(() => {
-	setTimeout(() => {
-		popup.value.open('center');
-	}, 1000);
+	if (!useData.isHomeModalShow) {
+		setTimeout(() => {
+			useData.updateHomeModalShow();
+			popup.value.open('center');
+		}, 1000);
+	}
+
+	if (uni.getStorageSync('token')) {
+	}
 });
 </script>
 

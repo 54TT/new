@@ -1,6 +1,6 @@
 <template>
 	<view class="bottomBox">
-		<view class="tabItem" v-for="item in tabList" :key="item.key" @click="switchTab(item.pagePath, item.key)">
+		<view class="tabItem" v-for="item in tabList" :key="item.key" @click="switchTab(item.pagePath)">
 			<div :class="{ showBack: item.key === 'node' }">
 				<image class="imgs" :src="current === item.pagePath ? item.selectedIconPath : item.iconPath" />
 			</div>
@@ -65,9 +65,8 @@ const tabList = [
 	}
 ];
 
-const switchTab = (pagePath, key) => {
-	uni.setStorageSync('active', key);
-	uni.switchTab({
+const switchTab = (pagePath) => {
+	uni.reLaunch({
 		url: '/' + pagePath
 	});
 };

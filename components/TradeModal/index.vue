@@ -75,14 +75,10 @@ const getPhone = (key) => {
 				passwordAll.value = data;
 			}
 		} else {
-			console.log(data[data.length - 1]);
 			if (!data[data.length - 1]) {
 				let lastIndex = data.lastIndexOf(data.filter((item) => item).pop());
-				console.log(lastIndex);
 				const index = lastIndex > -1 ? lastIndex + 1 : 0;
-				console.log(index);
 				data[index] = key;
-				console.log(data);
 				passwordAll.value = data;
 			}
 		}
@@ -107,7 +103,6 @@ const phone = [
 watch(
 	() => props.show,
 	(oldValue, _) => {
-		console.log(oldValue);
 		if (oldValue) {
 			popup.value.open('bottom');
 		}

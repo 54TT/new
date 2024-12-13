@@ -1,23 +1,26 @@
 <script setup>
 import { onLaunch, onShow, onHide } from '@dcloudio/uni-app';
-
+import { useDataStore } from '@/stores/data.js';
+const useData = useDataStore();
 const getToken = () => {
 	const data = uni.getStorageSync('token');
-	console.log(data);
 	if (data) {
-		// uni.switchTab({
-		// 	url: '/pages/index/index'
-		// });
+		useData.getUserInfo();
+		uni.reLaunch({
+			url: '/pages/index/index'
+		});
 	} else {
-		// uni.navigateTo({
-		// 	url: '/pages/loginRegister/login'
-		// });
+		uni.navigateTo({
+			url: '/pages/loginRegister/login'
+		});
 	}
 };
 
 onLaunch(() => {
 	getToken();
 });
+
+onShow(() => {});
 </script>
 
 <style lang="scss">
